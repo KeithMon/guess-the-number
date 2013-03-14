@@ -40,17 +40,15 @@ function cancelDefaultAction(e) {
 		input.focus();
 		// Generate random number using the range provided:
 		ranNum = Math.floor((Math.random()*numRange)+1);
-		// Output the random number to the console:
+		// Output the random number to the console (just for fun):
 		console.log(ranNum);
 	}
-
-	// Generate a random number the first time the page loads:
-	newRanNum();
 
 	// Update the display:
 	function display(className, removeMsg, msg1, msg2) {
 		if(!msg2){msg2 = "";}
 		
+		// Empty the input and add focus back to it:
 		input.value = "";
 		input.focus();
 
@@ -58,7 +56,7 @@ function cancelDefaultAction(e) {
 		paragraph.innerHTML = msg2;
 		result.className = className;
 
-		// Remove message after 3/4 second when "removeMsg" = true:
+		// Remove message after .75 second when "removeMsg" = true:
 		if( removeMsg ) {
 			setTimeout(emptyResult, 750);
 			function emptyResult() {
@@ -68,6 +66,7 @@ function cancelDefaultAction(e) {
 		}
 	}
 
+	// Track all the guesses for a single game and add them to a table on the page:
 	function updateGameGuesses(guessNumber, upDown) {
 		var guessVars = [guessNumber, upDown];
 		// Store all the guesses for one game:
@@ -77,9 +76,9 @@ function cancelDefaultAction(e) {
 
 		for ( var i = 0; i < gameGuesses.length; i++ ) {
 			var singleGuess = gameGuesses[i],
-				tr = document.createElement("tr"),
-				td0 = document.createElement("td");
-				td1 = document.createElement("td"),
+			tr = document.createElement("tr"),
+			td0 = document.createElement("td"),
+			td1 = document.createElement("td");
 				
 			td0.appendChild(document.createTextNode(singleGuess[0]));
 			td1.appendChild(document.createTextNode(singleGuess[1]));
@@ -96,7 +95,7 @@ function cancelDefaultAction(e) {
 		}
 	}
 
-	// Checks if the value passed is a number (true or false):
+	// Check if the value passed is a number (true or false):
 	function isNumber(o) {
 		return ! isNaN (o-0) && o !== null && o !== "";
 	}
@@ -141,15 +140,15 @@ function cancelDefaultAction(e) {
 			var gameStat = [numRange, ranNum, guesses];
 			// Add the game stat to an array that persists for the window session (is emptied after a page refresh):
 			var sessionScore = new Array();
-			sessionScore[sessionScore.length] = gameStat; // does this array have to be initialized before now?
+			sessionScore[sessionScore.length] = gameStat;
 
 			// Display the Session Scores in a table:
 			for( var i = 0; i < sessionScore.length; i++ ) {
 				var gameStat = sessionScore[i],
-					tr = document.createElement("tr"),
-					td0 = document.createElement("td");
-					td1 = document.createElement("td"),
-					td2 = document.createElement("td"),
+				tr = document.createElement("tr"),
+				td0 = document.createElement("td"),
+				td1 = document.createElement("td"),
+				td2 = document.createElement("td");
 
 				td0.appendChild(document.createTextNode("1 to " + gameStat[0]));
 				td1.appendChild(document.createTextNode(gameStat[1]));
@@ -169,4 +168,6 @@ function cancelDefaultAction(e) {
 		}
 	}
 
+	// Generate a random number the first time the page loads:
+	newRanNum();
 })();
