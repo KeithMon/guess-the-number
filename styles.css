@@ -1,0 +1,43 @@
+body {
+	margin: 0 auto;
+	width: 400px;
+	font-family: sans-serif;
+}
+#input {
+	width: 40px;
+}
+.red {
+	color: red;
+}
+.blue {
+	color: blue;
+}
+.yellow {
+	color: #aaa;
+}
+.back {
+	font-size: .8em;
+	color: black;
+}
+thead {
+	font-size: .8em;
+}
+tr, td {
+	font-size: .9em;
+	border: 1px dotted black;
+	text-align: center;
+}
+caption{
+	font-size: 1.2em;
+	text-decoration: underline;
+}
+.twoCol, table {
+	width: 50%;
+	float: left;
+}
+.result {
+	float: left;
+	width: 100%;
+	text-align: center;
+	min-height: 60px
+}

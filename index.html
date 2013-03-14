@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Guess the Number</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body onLoad="onPageLoad('input');">
+<a class="back" href="../">Back to <strong>JavaScript Projects</strong> List</a>
+<h1>Guess the Number</h1>
+
+
+<div class="twoCol">
+	<p>Choose your range:</p>
+	<select id="range">
+		<option value="10" slected>1 to 10</option>
+		<option value="100">1 to 100</option>
+		<option value="1000">1 to 1000</option>
+	</select>	
+</div>
+
+<div class="twoCol last">
+	<p id="between"></p>
+	<form>
+		<input type="text" id="input" />
+		<input type="submit" id="button" onclick="cancelDefaultAction(event);" value="Guess" />
+	</form>
+</div>
+
+<div class="result">
+	<h3 id="result"></h3>
+	<p id="paragraph"></p>
+</div>
+
+<hr>
+
+<table>
+	<caption>Game Guesses</caption>
+	<thead>
+		<tr>
+			<th>Guess</th>
+			<th>Low/High</th>
+		</tr>
+	</thead>
+	<tbody id="gameGuesses">
+	</tbody>
+</table>
+
+<table>
+	<caption>Session Scores</caption>
+	<thead>
+		<tr>
+			<th>Range</th>
+			<th>Number</th>
+			<th>Guesses</th>
+		</tr>
+	</thead>
+	<tbody id="sessionScore">
+	</tbody>
+</table>
+
+
+<script src="guess.js"></script>
+</body>
+</html>
